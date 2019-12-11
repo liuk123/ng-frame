@@ -1,0 +1,60 @@
+<form [formGroup]='form' (submit)="onSubmit(form,$event)">
+    <div>
+        <label>用户名</label>
+        <input type="text" formControlName="username">
+        <div *ngIf="form.get('username').dirty||form.get('username').touched&&form.get('username').invalid">
+            <span [hidden]="!form.hasError('required','username')"  class="errorInfo">必填选项</span>
+            <span [hidden]="!form.hasError('maxlength','username')"  class="errorInfo">5个字符以内</span>
+            <span [hidden]="!form.hasError('decimals','username')"  class="errorInfo">{{form.getError('decimals','username')?.info}}</span>
+        </div>
+    </div>
+    <div>
+        <label>密码</label>
+        <input type="text" formControlName="pwd">
+    </div>
+    <div>
+        <label>确认密码</label>
+        <input type="text" formControlName="confirmpwd">
+    </div>
+    <div>
+        <label>性别</label>
+        <input type="text" formControlName="sex">
+    </div>
+    <div>
+        <label>喜好</label>
+        <div>
+            <button type="button" (click)="addlikes()">添加</button>
+            <button type="button" (click)="mklikes(3)">设置3</button>
+        </div>
+        <ul formArrayName="likes">
+            <li *ngFor="let like of likes?.controls; let i = index">
+                <div [formGroupName]="i">
+                    <input type="hidden" formControlName="id">
+                    <div>
+                        <label>品牌</label>
+                        <input type="text" formControlName="brand">
+                    </div>
+                    <div>
+                        <label>描述</label>
+                        <!-- <input type="text" formControlName="desc"> -->
+                        <ul [formGroup]='like.get("descs")'>
+                            <li *ngFor='let desc of likes.controls[i].get("descs").controls; let n = index'>
+                                <input type="text" [formControlName]="n">
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button type="button" (click)="rmlikes(i)">删除</button>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button type="submit">提交</button>
+        <button type="button" (click)="resetform()">清空</button>
+    </div>
+</form>
+
+<button type="button" (click)="setdisabled()">disabled</button>
+{{disabled}}

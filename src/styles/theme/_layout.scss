@@ -1,0 +1,27 @@
+html, body, app-root, .site {
+    width:100%;
+    min-height: calc(100vh + 0px)
+}
+.site{
+    display: flex;
+    flex-direction: column;
+    header{
+        background-color: #999;
+        height:2rem;
+    }
+    main{
+        flex: 1 1 auto;
+        overflow: auto;
+        height: calc(100vh - 2rem);
+        display: flex;
+        .sidebar{
+            width:15rem;
+            background-color: #ddd;
+        }
+        .container{
+            flex: 1 1 auto;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+    }
+}

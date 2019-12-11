@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form,$event)">
+    <input
+        type="file"
+        multiple
+        name="img"
+        placeholder="Upload file"
+        (change)="fileChange($event)"
+        accept=".pdf,.jpg,.jpeg,.png">
+    <button type="submit">上传图片</button>
+</form>
+<ul>
+    <li *ngFor="let img of imgSrcs; let i = index">
+        <img [src]="_d.bypassSecurityTrustUrl(img)">
+    </li>
+</ul>

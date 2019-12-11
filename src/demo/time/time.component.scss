@@ -1,0 +1,126 @@
+form{
+    width:100%;
+    height:100%;
+}
+
+.panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:#fff;
+    padding: 1rem;
+    .panel-header{
+        display: flex;
+        flex-wrap: nowrap;
+        .header-left{
+            display: flex;
+            width: 8rem;
+            .item{
+                flex: 1 1 auto;
+                background-color: #ddd;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                width:50%;
+            }
+        }
+        .header-right{
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    .day-panel{
+        display: flex;
+        flex-direction: column;
+        flex:1 1 auto;
+        .day-name-list,
+        .day-list{
+            display: flex;
+            flex-direction: row;
+            flex: 1 1 auto;
+            .cell{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1 1 auto;
+                flex-direction: column;
+                border-radius: .4rem;
+                border:1px solid transparent;
+                width: 20%;
+            }
+            
+        }
+        .day-list .cell:hover{
+            transition: box-shadow .3s;
+            box-shadow: 0 0 12px -3px rgba(0,0,0,.2);
+            border-color: #eee;
+        }
+    }
+    .month-panel{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 auto;
+        .cell{
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border:1px solid transparent;
+            &:hover{
+                transition: box-shadow .3s;
+                box-shadow: 0 0 12px -3px rgba(0,0,0,.2);
+                border-color: #eee;
+            }
+        }
+    }
+}
+
+.task-content{
+    padding: 0 .5rem;
+    display: flex;
+    .task-list{
+        width:.6rem;
+        height:.6rem;
+        margin:.1rem;
+        border-radius:.2rem;
+        cursor: pointer;
+        background-color:#f00;
+        position: relative;
+        .item{
+            display: none;
+            position: absolute;
+            left:0;
+            bottom:100%;
+            white-space: nowrap;
+            background-color: #fff;
+            box-shadow: 0 0 32px -7px rgba(0,0,0,.2);
+            z-index:1000;
+            padding:.3rem;
+            border:1px solid transparent;
+            border-radius:.3rem;
+            
+        }
+        &:hover .item{
+            display: block;
+            border-color:#ddd;
+        }
+    }
+}
+
+
+.text-menu{
+    color:#ddd;
+}
+.input-control{
+    width:100%;
+}
+.btn-confirm{
+    white-space: nowrap;
+}
+.hidden{
+    display: none!important;
+}

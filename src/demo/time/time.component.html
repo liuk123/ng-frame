@@ -1,0 +1,32 @@
+<div style="width:800px;height:400px;">
+    <div class="panel">
+        <div class="panel-header">
+            <div class="header-left">
+                <span class="item" (click)="selMonth()">{{currentMonth}}</span>
+                <span class="item">{{currentYear}}</span>
+            </div>
+            <div class="header-right">
+                <button type="button" class="btn-confirm" [class.hidden]="!isDayPanel" (click)="prevMonth()">上</button>
+                <button type="button" class="btn-confirm" [class.hidden]="!isDayPanel" (click)="nextMonth()">下</button>
+                <button type="button" class="btn-confirm" [class.hidden]="!isMonthPanel" (click)="selDay(currentMonth)">取消</button>
+            </div>
+        </div>
+        <ul class="day-panel" [class.hidden]="!isDayPanel">
+            <li class="day-name-list">
+                <div class="cell" *ngFor="let dayName of display.dayNames">{{dayName}}</div>
+            </li>
+            <li class="day-list" *ngFor="let weeks of monthDays">
+                <div class="cell" [class.text-menu]="day.month != currentMonth" *ngFor="let day of weeks">
+                    {{day.day}}
+                    <ul class="task-content">
+                        <li class="task-list"><span class="item">待办事项提醒</span></li>
+                        <li class="task-list"><span class="item">待办事项提醒</span></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="month-panel" [class.hidden]="!isMonthPanel">
+            <li *ngFor="let monthName of display.monthNames; let i=index" class="cell" (click)="selDay(i)">{{monthName}}</li>
+        </ul>
+    </div>
+</div>
