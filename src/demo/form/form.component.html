@@ -38,7 +38,7 @@
                         <label>描述</label>
                         <!-- <input type="text" formControlName="desc"> -->
                         <ul [formGroup]='like.get("descs")'>
-                            <li *ngFor='let desc of likes.controls[i].get("descs").controls; let n = index'>
+                            <li *ngFor='let desc of like.get("descs").controls; let n = index'>
                                 <input type="text" [formControlName]="n">
                             </li>
                         </ul>

@@ -7,6 +7,7 @@ import { CommonUtilsSrv } from './utils/common-util.service';
 import { valideUtilsSrv } from './utils/valide-util.service';
 import { ObjectUtilSrv } from './utils/object-util.service';
 import { TimeUtilSrv } from './utils/time-util.service';
+import { MoneyFormatPipe } from './pipes/money-format.pipe';
 
 //module
 const THIRD_MODULES = [
@@ -22,7 +23,7 @@ const DIRECTIVES = [
 ];
 //pipes
 const PIPES = [
-
+  MoneyFormatPipe
 ];
 //service
 const SERVICE = [
